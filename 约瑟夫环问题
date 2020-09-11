@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include<malloc.h>
+typedef struct LNode  
+	{
+		int number,password;                 
+		struct LNode *next;
+	}SLX;
+struct LNode *head,*p,*pt;   
+int CreatLinkListFunction(int n)  
+	{
+		int i;
+		head=(struct LNode*)malloc(sizeof(SLX));  
+		p=head;
+		for(i=1;i<n;i++)
+			{
+				pt=(struct LNode*)malloc(sizeof(SLX));
+				p->next=pt;
+				p=pt;
+			}
+		p->next=head; 
+		pt=head;
+		return 0;
+	}
+int EnterPassword(int n)        
+	{
+	int i,k;
+	printf("\n请输入密码: \n");
+	for( i=1;i<=n;i++)
+		{
+			scanf("%d",&k);
+			pt->number=i;        
+			pt->password=k;       
+			pt=pt->next;
+		}
+	pt=p;
+	return 0;
+	}
+int OutListFunction(int m,int n)  
+	{
+	int i,a;
+	for(i=1;i<=n;i++)         
+		{
+			for(a=1;a<m;a++)      
+				{
+					pt=pt->next;
+				}
+			p=pt->next;
+			m=p->password;
+			printf("%d ",p->number);    
+			pt->next=p->next;
+			free(p);          
+		}
+	return 0;
+	}
+int main()
+	{   
+		int m,n;   
+		printf("\n参数m、n传递报数上限值和人数;\n");
+		printf("\n请输入 m 和n: \n");
+		scanf("%d %d",&m,&n);
+		CreatLinkListFunction(n);  
+		EnterPassword(n);       
+		printf("\n出队的人依次是:\n");
+		OutListFunction(m,n);      
+	}
