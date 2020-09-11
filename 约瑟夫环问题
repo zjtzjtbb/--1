@@ -14,6 +14,7 @@ int CreatLinkListFunction(int n)
 		for(i=1;i<n;i++)
 			{
 				pt=(struct LNode*)malloc(sizeof(SLX));
+				printf("hello world");
 				p->next=pt;
 				p=pt;
 			}
